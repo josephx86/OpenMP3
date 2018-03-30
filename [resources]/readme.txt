@@ -1,4 +1,4 @@
-﻿*** OpenMP3 v0.91 ***
+﻿*** OpenMP3 v0.95 ***
 
 - A licence-free MP3 decoding library.
 
@@ -37,15 +37,6 @@
 
 
 
-* KNOWN ISSUES * 
-
-- Decoding errors exist!!! (as with original PDMP3)
-	- See "fail/" folder for examples
-	- I am *not* going to fix, I am not a DSP developer! Contributors are needed to fix this!
-
-
-
-
 * TODO * 
 	
 - Support for iterating / extracting ID3 tags
@@ -54,8 +45,8 @@
 - Optimisations
 	- Some basic optimisations were done as part of the refactor
 	- However lots of optimisation potential still exists.  Roughly three blocks:
-		- (1) re-factor data layout to massively reduce deferencing, move some local static data to the Library class, plus other small optimisations 
-		- (2) some calculations to be pre-computed (maybe)
+		- (1) re-factor data layout to reduce deferencing
+		- (2) some more calculations to be pre-computed (maybe)
 		- (3) use simd/vector operations
 
 
@@ -63,9 +54,12 @@
 
 * CHANGE LOG * 
 
-- Version 0.9: Initial release
-
+- Version 0.95
+	- Fixed an error in kHuffmanTables, seems to have fixed known decoding errors
+	
 - Version 0.91
 	- Approx 3x faster decoding due to use of pre-calc tables in IMDCT_Win
 	- Skip initial silent 'Info' frame created by LAME encoder
 	
+- Version 0.9: Initial release
+
